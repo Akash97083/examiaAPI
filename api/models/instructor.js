@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
+const jwt = require('jsonwebtoken')
 
-const Instructor = mongoose.model('Instructor',mongoose.Schema({
+const InstructorSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -25,7 +26,14 @@ const Instructor = mongoose.model('Instructor',mongoose.Schema({
         minlength: 5,
         maxlength: 1024
     },
-}));
+})
+
+InstructorSchema.methods.generateTokens = function(){
+    const token = jwt.sign({_id:this._id},"key")
+    return token
+}
+const Instructor = mongoose.model('Instructor',InstructorSchema);
+
 function validateRegister(instructor){
     const schema = Joi.object({
         name: Joi.string()

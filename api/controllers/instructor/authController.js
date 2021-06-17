@@ -1,21 +1,21 @@
 const {Instructor,validateRegister,validateLogin} = require('../../models/instructor.js');
 const Joi = require('joi')
 const bcrypt = require('bcrypt')
-
 const authController = {
     async login (req, res) {
-        const hash = bcrypt.hashSync(req.body.password, 10);
-        console.log(hash)
-        let instructorFound = await Instructor.find({email:req.body.email,password:hash})
-        if(instructorFound.length > 0) {
-            return res.status(404).json({
-                message: "Logged in"
-            })
-        } else{
-            return res.status(404).json({
-                message: "Email or password is wrong"
-            })
-        }
+        Instructor.find({email:req.body.email})
+            .then((result=>{
+                if(result.length > 0) {
+                    bcrypt.compare(req.body.password, result[0].password)
+                        .then((validPassword)=>{
+                        if(validPassword) {
+                            Instructor.generateTokens()
+                            return res.status(404).json({
+                                message: "Logged in"
+                            })
+                        }})
+                }
+            }))
 
     },
     async register (req, res) {
