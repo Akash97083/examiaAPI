@@ -4,12 +4,19 @@ const bcrypt = require('bcrypt')
 
 const authController = {
     async login (req, res) {
-        // Returns all products
-        Instructor.find({})
-            // alongside it's manufacturer
-            // information
-            .populate('manufacturer')
-            .exec((err, products) => res.json(products))
+        const hash = bcrypt.hashSync(req.body.password, 10);
+        console.log(hash)
+        let instructorFound = await Instructor.find({email:req.body.email,password:hash})
+        if(instructorFound.length > 0) {
+            return res.status(404).json({
+                message: "Logged in"
+            })
+        } else{
+            return res.status(404).json({
+                message: "Email or password is wrong"
+            })
+        }
+
     },
     async register (req, res) {
         const { error } = validateRegister(req.body);
