@@ -28,7 +28,7 @@ const InstructorSchema = mongoose.Schema({
     },
 })
 
-InstructorSchema.methods.generateTokens = function(){
+InstructorSchema.methods.generateTokens = function generateTokens() {
     const token = jwt.sign({_id:this._id},"key")
     return token
 }

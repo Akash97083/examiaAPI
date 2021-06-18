@@ -1,19 +1,21 @@
 const {Instructor,validateRegister,validateLogin} = require('../../models/instructor.js');
 const Joi = require('joi')
+const _ = require('underscore')
 const bcrypt = require('bcrypt')
 const authController = {
+    async me (req, res) {
+        Instructor.findOne({email:req.body.email})
+    },
     async login (req, res) {
-        Instructor.find({email:req.body.email})
-            .then((result=>{
-                if(result.length > 0) {
-                    bcrypt.compare(req.body.password, result[0].password)
+        Instructor.findOne({email:req.body.email})
+            .then((inst=>{
+                if(Instructor.length > 0) {
+                    bcrypt.compare(req.body.password, inst.password)
                         .then((validPassword)=>{
-                        if(validPassword) {
-                            Instructor.generateTokens()
-                            return res.status(404).json({
-                                message: "Logged in"
-                            })
-                        }})
+                            if(validPassword) {
+                                let token = inst.generateTokens()
+                                return res.header('x-auth-token',token).send(_.pick(inst,['_id','name','email']))
+                            }})
                 }
             }))
 
