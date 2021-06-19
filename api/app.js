@@ -4,8 +4,9 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express();
 
-const instructorAuth = require('./routes/instructor')
-const instructorQuestion = require('./routes/question')
+const instructorAuth = require('./routes/instructor/auth')
+const instructorQuestion = require('./routes/instructor/question')
+const instructorCategory = require('./routes/instructor/category')
 
 const dbURI = "mongodb://localhost/examia"
 const dbPort = 3000
@@ -24,6 +25,7 @@ app.use(express.json())
 
 app.use('/api/instructor/auth',instructorAuth)
 app.use('/api/instructor/question',instructorQuestion)
+app.use('/api/instructor/category',instructorCategory)
 
 mongoose.connect(dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection

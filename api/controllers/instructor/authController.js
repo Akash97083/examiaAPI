@@ -10,16 +10,23 @@ const authController = {
     async login (req, res) {
         const { error } = validateLogin(req.body);
         if(error) return res.status(404).json(error.details)
-
         Instructor.findOne({email:req.body.email})
             .then((inst=>{
-                if(inst.length > 0) {
+                if(inst) {
                     bcrypt.compare(req.body.password, inst.password)
                         .then((validPassword)=>{
                             if(validPassword) {
                                 let token = inst.generateTokens()
                                 return res.header('x-auth-token',token).send(_.pick(inst,['_id','name','email','phone']))
+                            }else{
+                                return res.status(404).json({
+                                    message:"Password is not correct"
+                                })
                             }})
+                }else{
+                    return res.status(404).json({
+                        message:"Email is not registered"
+                    })
                 }
             }))
     },

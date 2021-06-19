@@ -18,12 +18,13 @@ const questionSchema = new mongoose.Schema({
     difficulty: {type: String,enum:['Easy','Normal','Hard'],default:'Normal'},
     type: {type: String,enum:['Multiple Choice','True or False','Complete','Matching'],required:true},
     points: {type: Number,default:1},
-    instructor: {type: mongoose.Schema.Types.ObjectId, ref: 'Instructor'},
-    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
+    instructor: {type: mongoose.Schema.Types.ObjectId, ref: 'Instructor',required:true},
+    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category',required:true},
     MCQ_Answers: [MCQ_Answers],
     Matching_Answers: [Matching_Answers],
-    trueFalse: {type:Boolean, required:true},
+    trueFalse: {type:Boolean, default:0},
     Complete_Answers: [Complete_Answers],
+    isDeleted: {type:Boolean, default:false},
 })
 const Question = mongoose.model('Question',questionSchema);
 

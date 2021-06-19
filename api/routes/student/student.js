@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
-const authController = require('../controllers/student/authController');
-const StudentAuth = require('../middlewares/student/auth')
+const authController = require('../../controllers/student/authController');
+const StudentAuth = require('../../middlewares/student/auth')
 //auth
 router.get('/',StudentAuth, authController.profile);
 router.put('/update',StudentAuth, authController.updateBasicInfo);

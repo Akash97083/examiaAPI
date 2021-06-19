@@ -1,13 +1,23 @@
 const mongoose = require('mongoose')
 
 const categorySchema = new mongoose.Schema({
-    category: { type: String,required:true},
-    difficulty: {type: String,enum:['Easy','Normal','Hard'],default:'Normal'},
-    type: {type: String,enum:['Multiple Choice','True or False','Complete','Matching'],required:true},
-    points: {type: Number,default:1},
-    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
-    instructor: {type: mongoose.Schema.Types.ObjectId, ref: 'Instructor'},
+    name: { type: String,required:true},
+    parent: {type: mongoose.Schema.Types.ObjectId, ref: 'Category',default:null},
+    instructor: {type: mongoose.Schema.Types.ObjectId, ref: 'Instructor',required: true},
 })
-const Category = mongoose.model('Question',categorySchema);
+const Category = mongoose.model('Category',categorySchema);
+
+function validateName(name){
+    const schema = Joi.object({
+        name: Joi.string()
+            .min(2)
+            .max(50)
+            .required(),
+        parent: Joi.string(),
+        instructor: Joi.required()
+    })
+    return schema.validate(name);
+}
 
 exports.Category = Category
+exports.validateName = validateName

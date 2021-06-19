@@ -13,13 +13,21 @@ const authController = {
 
         Student.findOne({email:req.body.email})
             .then((student=>{
-                if(student.length > 0) {
+                if(student) {
                     bcrypt.compare(req.body.password, student.password)
                         .then((validPassword)=>{
                             if(validPassword) {
                                 let token = student.generateTokens()
                                 return res.header('x-auth-token',token).send(_.pick(student,['_id','name','email','phone','student_id']))
+                            }else{
+                                return res.status(404).json({
+                                    message:"Password is not correct"
+                                })
                             }})
+                }else{
+                    return res.status(404).json({
+                        message:"Email is not registered"
+                    })
                 }
             }))
     },
