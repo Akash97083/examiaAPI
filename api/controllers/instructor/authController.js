@@ -43,6 +43,7 @@ const authController = {
         const instructor = new Instructor({
             name: req.body.name,
             email: req.body.email,
+            phone: req.body.phone,
             password: hash,
         })
         instructor.save().then((result)=>{

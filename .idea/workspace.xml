@@ -19,14 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a93868c-10d9-4f8a-b017-f1482ab8c36a" name="Default Changelist" comment="question model and controller created">
+    <list default="true" id="3a93868c-10d9-4f8a-b017-f1482ab8c36a" name="Default Changelist" comment="1.0.0">
+      <change afterPath="$PROJECT_DIR$/api/controllers/instructor/groupController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/routes/instructor/group.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/controllers/instructor/categoryController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/instructor/categoryController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/instructor/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/instructor/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/instructor/categoryController.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/api/controllers/instructor/questionController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/instructor/questionController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/category.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/group.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/group.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/models/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/instructor/category.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/api/routes/instructor/question.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/instructor/question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +55,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1tpMjx69wr3iGIs8qqkUB0CwXIH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,21 +65,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/controllers/instructor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/routes/instructor" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\express\api\controllers\instructor" />
-      <recent name="C:\laragon\www\express\api\routes" />
-      <recent name="C:\laragon\www\express\api\controllers\student" />
-      <recent name="C:\laragon\www\express\api\middlewares\student" />
+      <recent name="D:\proj\examiaAPI\api\routes\instructor" />
+      <recent name="D:\proj\examiaAPI\api\controllers\instructor" />
+      <recent name="D:\proj\examiaAPI\api\routes" />
       <recent name="C:\laragon\www\express\api\controllers\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\express\api\middlewares\student" />
+      <recent name="D:\proj\examiaAPI\api\routes\student" />
+      <recent name="D:\proj\examiaAPI\api\routes\instructor" />
       <recent name="C:\laragon\www\express\api\controllers" />
       <recent name="C:\laragon\www\express\api\routes\instructor" />
     </key>
@@ -90,25 +99,10 @@
       <workItem from="1623717327400" duration="3433000" />
       <workItem from="1623808669885" duration="6779000" />
       <workItem from="1623884332953" duration="10323000" />
-      <workItem from="1623978396030" duration="3440000" />
-      <workItem from="1624063044891" duration="13654000" />
-      <workItem from="1624165518543" duration="6641000" />
+      <workItem from="1623939249454" duration="1224000" />
+      <workItem from="1623942089344" duration="5600000" />
+      <workItem from="1624131440719" duration="3265000" />
     </task>
-    <task id="LOCAL-00001" summary="vv">
-      <created>1623990416252</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623990416252</updated>
-    </task>
-    <task id="LOCAL-00002" summary="question model and controller created">
-      <created>1624154914486</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1624154914486</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,11 +120,6 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="vv" />
-    <MESSAGE value="question model and controller created" />
-    <option name="LAST_COMMIT_MESSAGE" value="question model and controller created" />
-  </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623931803496">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -140,21 +129,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="225" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1623932154980" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1623983265363">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1624198967080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1623983265363" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624154918236">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624198967080" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1624110150650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624154918236" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624063126081">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1624110150650" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1624110150649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624063126081" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1624170382356">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1624110150649" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1624110150649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624170382356" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1624110150649" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1624110150650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1624110150650" />
+    <state x="799" y="222" key="RollbackChangesDialog" timestamp="1624114220374">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="799" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624114220374" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1624110242940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1624110242940" />
   </component>
 </project>

@@ -6,8 +6,8 @@ const MCQ_Answers = new mongoose.Schema({
     isCorrect: {type:Boolean, default: false}
 })
 const Matching_Answers = new mongoose.Schema({
-    Clue: String,
-    Match: String,
+    clue: String,
+    match: String,
     points: {type: Number,default:1},
 })
 const Complete_Answers = new mongoose.Schema({
@@ -35,15 +35,14 @@ function validateQuestion(question){
         difficulty: Joi.string().valid('Easy','Normal','Hard'),
         type: Joi.string().valid('Multiple Choice','True or False','Complete','Matching').required(),
         points: Joi.number().min(1).max(20).required(),
-        instructor: Joi.string().required(),
         category: Joi.string().required(),
         MCQ_Answers: Joi.array().items({
             answer: Joi.string().required(),
             isCorrect: Joi.boolean().required(),
         }),
         Matching_Answers: Joi.array().items({
-            Clue: Joi.string().required(),
-            Match: Joi.string().required(),
+            clue: Joi.string().required(),
+            match: Joi.string().required(),
             points: Joi.number().min(1).max(20).required(),
         }),
         AnswerIsTrue: Joi.boolean(),

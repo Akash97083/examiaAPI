@@ -1,12 +1,10 @@
 const express = require('express')
-const logger = require('morgan')
-const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express();
 
 const instructorAuth = require('./routes/instructor/auth')
 const instructorQuestion = require('./routes/instructor/question')
-const instructorCategory = require('./routes/instructor/category')
+const instructorGroup = require('./routes/instructor/group')
 
 const dbURI = "mongodb://localhost/examia"
 const dbPort = 3000
@@ -25,6 +23,7 @@ app.use(express.json())
 
 app.use('/api/instructor/auth',instructorAuth)
 app.use('/api/instructor/question',instructorQuestion)
+app.use('/api/instructor/group',instructorGroup)
 
 mongoose.connect(dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection

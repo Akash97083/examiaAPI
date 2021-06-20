@@ -5,8 +5,8 @@ const questionController = require('../../controllers/instructor/questionControl
 const instructorAuth = require('../../middlewares/instructor/auth')
 //auth
 router.get('/',instructorAuth,questionController.all);
-router.get('/:id',instructorAuth,questionController.getOne);
 router.get('/categories',instructorAuth,questionController.categories);
+router.get('/one/:id',instructorAuth,questionController.getOne);
 router.get('/category/:cat',instructorAuth,questionController.getByCategory);
 router.post('/create',instructorAuth,questionController.create);
 router.post('/update/:id',instructorAuth,questionController.update);
