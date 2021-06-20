@@ -25,7 +25,6 @@ app.use(express.json())
 
 app.use('/api/instructor/auth',instructorAuth)
 app.use('/api/instructor/question',instructorQuestion)
-app.use('/api/instructor/category',instructorCategory)
 
 mongoose.connect(dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection

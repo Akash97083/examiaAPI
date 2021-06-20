@@ -20,7 +20,7 @@ const questionSchema = new mongoose.Schema({
     type: {type: String,enum:['Multiple Choice','True or False','Complete','Matching'],required:true},
     points: {type: Number,default:1},
     instructor: {type: mongoose.Schema.Types.ObjectId, ref: 'Instructor',required:true},
-    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category',required:true},
+    category: { type: String, required:true},
     MCQ_Answers: [MCQ_Answers],
     Matching_Answers: [Matching_Answers],
     AnswerIsTrue: {type:Boolean, default:false},

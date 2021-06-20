@@ -1,10 +1,21 @@
 const {Question,validateQuestion} = require('../../models/question.js');
 const _ = require('underscore')
 const questionController = {
+    async categories (req, res) {
+        console.log(333)
+        let result = await Question.find({instructor:req.instructor._id}).distinct('category')
+        res.status(200).send(result)
+    },
     async all (req, res) {
-        let all = await Question.find({})
-            .populate('category','name')
-            .populate('instructor','name')
+        let all = await Question.find({instructor:req.instructor._id})
+        res.status(200).send(all)
+    },
+    async getOne (req, res) {
+        let all = await Question.find({_id:req.params.id ,instructor:req.instructor._id})
+        res.status(200).send(all)
+    },
+    async getByCategory (req, res) {
+        let all = await Question.find({instructor:req.instructor._id,category:req.params.cat})
         res.status(200).send(all)
     },
     async create (req, res) {
