@@ -19,6 +19,7 @@ const StudentSchema = mongoose.Schema({
     student_id: {
         type: String,
         unique:true,
+        required: true,
         minlength: 6,
         maxlength: 20
     },
@@ -37,6 +38,7 @@ const StudentSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    groups: [{type: mongoose.Schema.Types.ObjectId, ref: 'Group'}],
     isActive: {
         type: Boolean,
         default: true
@@ -62,6 +64,7 @@ function validateRegister(Student){
             .max(50)
             .required(),
         password: Joi.string()
+
             .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
         repeat_password: Joi.ref('password'),
         email: Joi.string()

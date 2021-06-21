@@ -40,12 +40,8 @@ const authController = {
             return res.status(404).json({
                 message:"Email Already Exists"
             })
-        const hash = bcrypt.hashSync(req.body.password, 10);
-        const student = new Student({
-            name: req.body.name,
-            email: req.body.email,
-            password: hash,
-        })
+        req.body.password = bcrypt.hashSync(req.body.password, 10);
+        const student = new Student(req.body)
         student.save().then((result)=>{
             return res.status(200).json({
                 message:"Student Successfully Created"

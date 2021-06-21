@@ -1,5 +1,6 @@
 const {Group,validateGroup} = require('../../models/group.js');
 const _ = require('underscore')
+const {Student} = require("../../models/student");
 const questionController = {
     async all (req, res) {
         let all = await Group.find({instructor:req.instructor._id})
@@ -54,7 +55,7 @@ const questionController = {
 
     },
     async deactivate (req, res) {
-        await Question.findById(req.params.id)
+        await Group.findById(req.params.id)
             .then((q)=>{
                 q.isActive = !q.isActive
                 q.save()
@@ -66,8 +67,53 @@ const questionController = {
                     message:error
                 })
             })
-
     },
+    async members (req, res) {
+        let members = await Student.find({ groups: { "$in" : [req.params.group]} }).select(['name','email','phone','student_id','isActive'])
+        res.send(members)
+    },
+    async addMember (req, res) {
+        await Student.findOne({student_id: req.params.student_id})
+            .then((student)=>{
+                if(student.groups.indexOf(req.params.group) === -1) {
+                    student.groups.push(req.params.group);
+                    student.save()
+                    return res.status(200).json({
+                        message:"Student added successfully"
+                    })
+                }else{
+                    return res.status(400).json({
+                        message:"student is already a member in the group"
+                    })
+                }
+            }).catch(()=>{
+                return res.status(404).json({
+                    message:"Something went wrong"
+                })
+            })
+    },
+    async removeMember (req, res) {
+        await Student.findOne({student_id: req.params.student_id})
+            .then((student)=>{
+                let indexOfGroupID = student.groups.indexOf(req.params.group)
+                if(indexOfGroupID > -1) {
+                    student.groups.splice(indexOfGroupID, 1);
+                    student.save()
+                    return res.status(200).json({
+                        message:"Student removed successfully"
+                    })
+                }else{
+                    return res.status(400).json({
+                        message:"student is not a member in the group"
+                    })
+                }
+            }).catch(()=>{
+                return res.status(404).json({
+                    message:"Something went wrong"
+                })
+            })
+    },
+
 };
 
 module.exports = questionController;

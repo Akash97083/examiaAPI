@@ -2,6 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express();
 
+const studentAuth = require('./routes/student/auth')
+
+
 const instructorAuth = require('./routes/instructor/auth')
 const instructorQuestion = require('./routes/instructor/question')
 const instructorGroup = require('./routes/instructor/group')
@@ -24,6 +27,8 @@ app.use(express.json())
 app.use('/api/instructor/auth',instructorAuth)
 app.use('/api/instructor/question',instructorQuestion)
 app.use('/api/instructor/group',instructorGroup)
+
+app.use('/api/student/auth',studentAuth)
 
 mongoose.connect(dbURI , {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
