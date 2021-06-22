@@ -39,6 +39,8 @@ const StudentSchema = mongoose.Schema({
         default: false
     },
     groups: [{type: mongoose.Schema.Types.ObjectId, ref: 'Group'}],
+    results:[{type: mongoose.Schema.Types.ObjectId, ref: 'Test'}],
+    assignedTests: [{type: mongoose.Schema.Types.ObjectId, ref: 'Test'}],
     isActive: {
         type: Boolean,
         default: true
